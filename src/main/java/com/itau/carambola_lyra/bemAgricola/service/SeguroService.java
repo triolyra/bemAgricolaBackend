@@ -1,6 +1,6 @@
-package com.itau.carambola_lyra.bemAgricola.entity;
+package com.itau.carambola_lyra.bemAgricola.service;
 
-public class BemAgricola {
+public class SeguroService {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
