@@ -10,22 +10,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-//import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_bemAgricola")
 
 public class BemAgricolaEntity {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigoBem;
+	private String codigoTipoBem;
 
 	@NotNull
-	private String tipoAgricola;
-
-	@NotNull
-	private String funcionalUsuario;
+	private String funcional;
 
 	@NotNull
 	private int safra;
@@ -52,28 +48,20 @@ public class BemAgricolaEntity {
 	@NotNull
 	private Date dataAvaliacao;
 
-	public int getCodigoBem() {
-		return codigoBem;
+	public String getCodigoTipoBem() {
+		return codigoTipoBem;
 	}
 
-	public void setCodigoBem(int codigoBem) {
-		this.codigoBem = codigoBem;
+	public void setCodigoTipoBem(String codigoTipoBem) {
+		this.codigoTipoBem = codigoTipoBem;
 	}
 
-	public String getTipoAgricola() {
-		return tipoAgricola;
+	public String getFuncional() {
+		return funcional;
 	}
 
-	public void setTipoAgricola(String tipoAgricola) {
-		this.tipoAgricola = tipoAgricola;
-	}
-
-	public String getFuncionalUsuario() {
-		return funcionalUsuario;
-	}
-
-	public void setFuncionalUsuario(String funcionalUsuario) {
-		this.funcionalUsuario = funcionalUsuario;
+	public void setFuncional(String funcional) {
+		this.funcional = funcional;
 	}
 
 	public int getSafra() {
