@@ -1,23 +1,47 @@
 package com.itau.carambola_lyra.bemAgricola.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "tb_bemAgricola")
-
 public class BemAgricolaEntity {
 	
+	public BemAgricolaEntity(long codigoBem, String codigoTipoBem, String funcional, int safra, String quantidade,
+			boolean colheita, String unidadeMedida, String tipoMoeda, double valor, Date dataInclusao,
+			Date dataAvaliacao, List<SeguroEntity> SeguroEntity) {
+		super();
+		this.codigoBem = codigoBem;
+		this.codigoTipoBem = codigoTipoBem;
+		this.funcional = funcional;
+		this.safra = safra;
+		this.quantidade = quantidade;
+		this.colheita = colheita;
+		this.unidadeMedida = unidadeMedida;
+		this.tipoMoeda = tipoMoeda;
+		this.valor = valor;
+		this.dataInclusao = dataInclusao;
+		this.dataAvaliacao = dataAvaliacao;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigoBem;
+	
+	@NotNull
 	private String codigoTipoBem;
 
 	@NotNull
@@ -47,6 +71,10 @@ public class BemAgricolaEntity {
 
 	@NotNull
 	private Date dataAvaliacao;
+	
+	@OneToMany(mappedBy = "codigoBem", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("codigoBem")
+	private List<SeguroEntity> SeguroEntity;
 
 	public String getCodigoTipoBem() {
 		return codigoTipoBem;
