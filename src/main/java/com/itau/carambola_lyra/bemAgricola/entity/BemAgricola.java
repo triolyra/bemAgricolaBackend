@@ -15,11 +15,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "tb_bemAgricola")
 
-public class BemAgricolaEntity {
+public class BemAgricola {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigoBem;
+	private String codigoBem;
 
 	@NotNull
 	private String tipoAgricola;
@@ -52,11 +52,11 @@ public class BemAgricolaEntity {
 	@NotNull
 	private Date dataAvaliacao;
 
-	public int getCodigoBem() {
+	public String getCodigoBem() {
 		return codigoBem;
 	}
 
-	public void setCodigoBem(int codigoBem) {
+	public void setCodigoBem(String codigoBem) {
 		this.codigoBem = codigoBem;
 	}
 
