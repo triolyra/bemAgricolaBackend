@@ -1,5 +1,4 @@
 package com.itau.carambola_lyra.bemAgricola.entity;
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,11 +14,16 @@ import javax.validation.constraints.NotNull;
 @Table(name = "tb_bemAgricola")
 
 public class BemAgricolaEntity {
-	
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String codigoTipoBem;
+	private String codigoBem;
 
+	@NotNull
+	private String tipoAgricola;
+	
 	@NotNull
 	private String funcional;
 
@@ -48,13 +52,19 @@ public class BemAgricolaEntity {
 	@NotNull
 	private Date dataAvaliacao;
 
-	public String getCodigoTipoBem() {
-		return codigoTipoBem;
+
+	public String getCodigoBem() {
+		return codigoBem;
 	}
 
-	public void setCodigoTipoBem(String codigoTipoBem) {
-		this.codigoTipoBem = codigoTipoBem;
+	public void setCodigoBem(String codigoBem) {
+		this.codigoBem = codigoBem;
 	}
+
+	public String getTipoAgricola() {
+		return tipoAgricola;
+	}
+
 
 	public String getFuncional() {
 		return funcional;
@@ -129,3 +139,5 @@ public class BemAgricolaEntity {
 	}
 
 }
+
+
