@@ -36,9 +36,9 @@ public class SeguroEntity {
 	@NotNull
 	private Date dataFimAvaliacao;
 	
+	//Um seguro só pode ser atrelado a um bem
 	@OneToOne
-	private BemAgricolaEntity codigoBem;
-
+	private BemAgricolaEntity bem;
 
 	public long getCodigoSeguro() {
 		return codigoSeguro;

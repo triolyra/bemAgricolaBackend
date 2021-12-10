@@ -4,15 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "tb_propriedade")
 public class PropriedadeEntity {
-
-	//Relacionamento de várias propriedades para uma pessoa
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +42,16 @@ public class PropriedadeEntity {
 
 	@NotNull
 	private String UF;
-
+	
+	//Várias propriedades podem ter uma pessoa!
+	//@ManyToOne
+	//@JsonIgnoreProperties("propriedades")
+	//private PessoaEntity pessoa;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("bem")
+	private BemAgricolaEntity bem;
+	
 	public int getCodigoPropriedade() {
 		return codigoPropriedade;
 	}
