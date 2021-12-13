@@ -20,8 +20,9 @@ public class BemAgricolaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigoBem;
-	
+
+	private String codigoBem;
+
 	@NotNull
 	private String codigoTipoBem;
 
@@ -52,6 +53,7 @@ public class BemAgricolaEntity {
 
 	@NotNull
 	private Date dataAvaliacao;
+
 	
 	@ManyToOne
 	@JsonIgnoreProperties("seguro")
@@ -70,6 +72,7 @@ public class BemAgricolaEntity {
 	}
 
 	public void setCodigoBem(long codigoBem) {
+
 		this.codigoBem = codigoBem;
 	}
 
