@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.itau.carambola_lyra.bemAgricola.entity.BemAgricola;
+import com.itau.carambola_lyra.bemAgricola.entity.BemAgricolaEntity;
+
 import com.itau.carambola_lyra.bemAgricola.repository.BemAgricolaRepository;
 import com.itau.carambola_lyra.bemAgricola.service.BemAgricolaService;
 
@@ -28,7 +29,8 @@ public class BemAgricolaController {
 	
 
 	@PostMapping
-	public ResponseEntity<BemAgricola> post(@RequestBody BemAgricola cadastroBem) {
+	public ResponseEntity<BemAgricolaEntity> post(@RequestBody BemAgricolaEntity cadastroBem) {
+
 
 		serviceBemAgricola.post(cadastroBem);
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryBemAgricola.save(cadastroBem));
