@@ -6,26 +6,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-//import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_bemAgricola")
-
 public class BemAgricolaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String codigoBem;
+
+	private long codigoBem;
 
 	@NotNull
-	private String tipoAgricola;
+	private String codigoTipoBem;
 
 	@NotNull
-	private String funcionalUsuario;
+	private String funcional;
 
 	@NotNull
 	private int safra;
@@ -52,28 +54,41 @@ public class BemAgricolaEntity {
 	@NotNull
 	private Date dataAvaliacao;
 
-	public String getCodigoBem() {
+	@ManyToOne
+	@JsonIgnoreProperties("seguro")
+	private SeguroEntity seguro;
+
+	@ManyToOne
+	@JsonIgnoreProperties("pessoa")
+	private PessoaEntity pessoa;
+
+	@ManyToOne
+	@JsonIgnoreProperties("propriedade")
+	private PropriedadeEntity propriedade;
+
+	public long getCodigoBem() {
 		return codigoBem;
 	}
 
-	public void setCodigoBem(String codigoBem) {
+	public void setCodigoBem(long codigoBem) {
+
 		this.codigoBem = codigoBem;
 	}
 
-	public String getTipoAgricola() {
-		return tipoAgricola;
+	public String getCodigoTipoBem() {
+		return codigoTipoBem;
 	}
 
-	public void setTipoAgricola(String tipoAgricola) {
-		this.tipoAgricola = tipoAgricola;
+	public void setCodigoTipoBem(String codigoTipoBem) {
+		this.codigoTipoBem = codigoTipoBem;
 	}
 
-	public String getFuncionalUsuario() {
-		return funcionalUsuario;
+	public String getFuncional() {
+		return funcional;
 	}
 
-	public void setFuncionalUsuario(String funcionalUsuario) {
-		this.funcionalUsuario = funcionalUsuario;
+	public void setFuncional(String funcional) {
+		this.funcional = funcional;
 	}
 
 	public int getSafra() {
@@ -138,6 +153,30 @@ public class BemAgricolaEntity {
 
 	public void setDataAvaliacao(Date dataAvaliacao) {
 		this.dataAvaliacao = dataAvaliacao;
+	}
+
+	public SeguroEntity getSeguro() {
+		return seguro;
+	}
+
+	public void setSeguro(SeguroEntity seguro) {
+		this.seguro = seguro;
+	}
+
+	public PessoaEntity getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(PessoaEntity pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public PropriedadeEntity getPropriedade() {
+		return propriedade;
+	}
+
+	public void setPropriedade(PropriedadeEntity propriedade) {
+		this.propriedade = propriedade;
 	}
 
 }
