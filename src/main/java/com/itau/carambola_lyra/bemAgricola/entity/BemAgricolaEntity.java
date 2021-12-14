@@ -21,7 +21,7 @@ public class BemAgricolaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private String codigoBem;
+	private long codigoBem;
 
 	@NotNull
 	private String codigoTipoBem;
@@ -54,15 +54,14 @@ public class BemAgricolaEntity {
 	@NotNull
 	private Date dataAvaliacao;
 
-	
 	@ManyToOne
 	@JsonIgnoreProperties("seguro")
 	private SeguroEntity seguro;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("pessoa")
 	private PessoaEntity pessoa;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("propriedade")
 	private PropriedadeEntity propriedade;
@@ -179,5 +178,5 @@ public class BemAgricolaEntity {
 	public void setPropriedade(PropriedadeEntity propriedade) {
 		this.propriedade = propriedade;
 	}
-	
+
 }

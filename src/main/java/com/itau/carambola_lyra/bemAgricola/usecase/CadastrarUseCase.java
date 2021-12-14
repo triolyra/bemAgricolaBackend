@@ -1,15 +1,19 @@
 package com.itau.carambola_lyra.bemAgricola.usecase;
 
-import com.itau.carambola_lyra.bemAgricola.entity.BemAgricolaEntity;
-import com.itau.carambola_lyra.bemAgricola.repository.BemAgricolaRepository;
+import com.itau.carambola_lyra.bemAgricola.repository.CRUD;
 
-public class CadastrarUseCase {
+public class CadastrarUseCase implements CRUD {
 
-	private BemAgricolaRepository repository;
-	
-	public BemAgricolaEntity cadastrarBemAgricola(BemAgricolaEntity bemAgricola) {
-		return repository.save(bemAgricola);
-		
+	public void create() {
+
+	}
+
+	public void read() {
+
+	}
+
+	public void update() {
+
 	}
 
 }

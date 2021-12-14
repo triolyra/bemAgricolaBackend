@@ -17,6 +17,7 @@ public class BemAgricolaService {
 	@Autowired
 	private BemAgricolaRepository repositoryBemAgricola;
 
+	
 
 	public Optional<Object> cadastrarCodigo(CadastrarUseCase novoCadastro) {
 		return null;
@@ -43,4 +44,4 @@ public class BemAgricolaService {
 //	private static CadastrarUseCase CadastrarUseCase() {
 //		// TODO Auto-generated method stub
 //		return null;
-	}
+	
