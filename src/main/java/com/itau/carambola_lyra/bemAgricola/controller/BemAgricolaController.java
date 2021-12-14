@@ -32,7 +32,7 @@ public class BemAgricolaController {
 	public ResponseEntity<BemAgricolaEntity> post(@RequestBody BemAgricolaEntity cadastroBem) {
 
 
-		serviceBemAgricola.post(cadastroBem);
+	serviceBemAgricola.post(cadastroBem);
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryBemAgricola.save(cadastroBem));
 	};
 
